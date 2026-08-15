@@ -1,31 +1,30 @@
 import EniliveCard from "../../components/EniliveCard/EniliveCard"
 
-const ahrensfeldeData = {
+const ahrensfeldeStation = {
   owner: "Marco Köpke",
-  location: "Ahrensfelde",
+  location: "BFC FAN SHOP",
 
   address: [
     "Ahrensfelder Chaussee 152",
     "12689 Berlin",
   ],
 
-  phone: "030 / 93 74 39 2",
-  mobile: "",
+  phone: "030 9374392",
   email: "TS5058@enilive.net",
 
-  image: "/images/tankstellen/ahrensfelde.jpg",
+  image: "/images/tankstellen/guelzower.png",
 
   servicesLeft: [
     {
       icon: "◷",
-      text: "05:30 bis 22:00 Uhr",
+      text: "Öffnungszeiten von 05:30 bis 22:00 Uhr",
     },
     {
       icon: "✦",
-      text: "SONAX Waschanlage",
+      text: "SONAX Wagenpflege Waschanlage",
     },
     {
-      icon: "▣",
+      icon: "▤",
       text: "Getränke Markt",
     },
   ],
@@ -47,5 +46,5 @@ const ahrensfeldeData = {
 }
 
 export default function Ahrensfelde() {
-  return <EniliveCard station={ahrensfeldeData} />
+  return <EniliveCard station={ahrensfeldeStation} />
 }

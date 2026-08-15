@@ -92,38 +92,120 @@
   .business-card {
     transform: scale(calc((100vw - 32px) / 850));
     transform-origin: top center;
-    margin-bottom: calc((550px * ((100vw - 32px) / 850)) - 550px);
+    margin-bottom:
+      calc((550px * ((100vw - 32px) / 850)) - 550px);
   }
 }
 
+/* =========================================================
+   DRUCKANSICHT – 85 × 55 MM
+   ========================================================= */
+
+@page {
+  size: 85mm 55mm;
+  margin: 0;
+}
+
 @media print {
+  html,
+  body,
+  #root {
+    width: 85mm;
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+  }
+
+  body {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
   .app {
     width: 85mm;
-    height: 55mm;
-    min-height: 55mm;
+    min-height: 0;
+    margin: 0;
     padding: 0;
   }
 
   .app-header,
-  .card-side__label,
-  .card-side--back {
+  .card-side__label {
     display: none;
   }
 
-  .card-preview,
+  .card-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.card-switcher__button {
+  padding: 12px 20px;
+  color: #007ead;
+  background: #ffffff;
+  border: 2px solid #007ead;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 5px 12px rgba(32, 39, 43, 0.18);
+  transition:
+    color 160ms ease,
+    background 160ms ease,
+    transform 160ms ease;
+}
+
+.card-switcher__button:hover {
+  color: #ffffff;
+  background: #008e98;
+  transform: translateY(-2px);
+}
+
+.card-switcher__button--active {
+  color: #00a9d4;
+  background: #20272b;
+  border-color: #20272b;
+}
+
+  .card-preview {
+    display: block;
+    width: 85mm;
+    height: auto;
+    margin: 0;
+    padding: 0;
+  }
+
   .card-side {
+    position: relative;
     display: block;
     width: 85mm;
     height: 55mm;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    break-after: page;
+    page-break-after: always;
   }
 
-  .business-card {
-    width: 85mm;
-    height: 55mm;
+  .card-side:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
+
+  /*
+   * Die Bildschirmkarte ist 850 × 550 px groß.
+   * Sie wird beim Drucken exakt auf 85 × 55 mm verkleinert.
+   */
+  .business-card.enilive-card {
+    width: 850px;
+    height: 550px;
+    margin: 0;
     border: 0;
     box-shadow: none;
-    transform: none;
-    margin: 0;
+    transform: scale(0.3779527559);
+    transform-origin: top left;
   }
 }
 
@@ -169,9 +251,9 @@
   top: 0;
   right: 0;
   z-index: 5;
+  display: flex;
   width: 250px;
   height: 92px;
-  display: flex;
   align-items: center;
   justify-content: center;
   background: var(--enilive-gradient);
@@ -187,9 +269,9 @@
 
 .ahrensfelde-content {
   position: absolute;
-  z-index: 4;
   top: 48px;
   left: 48px;
+  z-index: 4;
   width: 455px;
 }
 
@@ -266,14 +348,14 @@
 
 .ahrensfelde-accent {
   position: absolute;
-  z-index: 3;
-  left: 468px;
   top: -90px;
+  left: 468px;
+  z-index: 3;
   width: 80px;
   height: 760px;
-  transform: rotate(7deg);
   background: var(--enilive-gradient);
   opacity: 0.95;
+  transform: rotate(7deg);
 }
 
 /* =========================================================
@@ -298,19 +380,19 @@
   right: -90px;
   width: 360px;
   height: 360px;
-  border-radius: 50%;
   background: var(--enilive-gradient);
+  border-radius: 50%;
   opacity: 0.16;
 }
 
 .bonus-card__header {
   position: relative;
   z-index: 2;
-  height: 100px;
-  padding: 0 42px;
   display: flex;
+  height: 100px;
   align-items: center;
   justify-content: space-between;
+  padding: 0 42px;
   color: #ffffff;
   background: var(--enilive-gradient);
   font-size: 22px;
@@ -352,8 +434,8 @@
 }
 
 .bonus-card__stamp {
-  aspect-ratio: 1;
   display: flex;
+  aspect-ratio: 1;
   align-items: center;
   justify-content: center;
   color: var(--enilive-blue);
