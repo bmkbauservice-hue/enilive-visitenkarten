@@ -1,0 +1,562 @@
+@import "@fontsource/great-vibes/400.css";
+
+/* =====================================================
+   GEMEINSAME ENILIVE-KARTE
+   ===================================================== */
+
+.enilive-card {
+  isolation: isolate;
+  overflow: hidden;
+  font-family:
+    Inter, Montserrat, Arial, Helvetica, sans-serif;
+}
+
+/* =====================================================
+   VORDERSEITE
+   ===================================================== */
+
+.enilive-card--front {
+  color: #ffffff;
+  background:
+    radial-gradient(
+      circle at 22% 18%,
+      rgba(0, 169, 212, 0.13),
+      transparent 35%
+    ),
+    #20272b;
+}
+
+/* Rechter Bildbereich */
+
+.enilive-card__photo-background {
+  position: absolute;
+  top: -8%;
+  right: -10%;
+  z-index: 1;
+  width: 62%;
+  height: 116%;
+  background:
+    linear-gradient(
+      135deg,
+      #007ead 0%,
+      #00a9d4 38%,
+      #008e98 68%,
+      #008b7a 100%
+    );
+  border-radius: 55% 0 0 55% / 100% 0 0 100%;
+}
+
+.enilive-card__photo-frame {
+  position: absolute;
+  top: -8%;
+  right: -10%;
+  z-index: 2;
+  width: 62%;
+  height: 116%;
+  overflow: hidden;
+  border-radius: 55% 0 0 55% / 100% 0 0 100%;
+}
+
+/*
+ * Tankstellenbild:
+ *
+ * width  = Größe
+ * right  = links/rechts
+ * bottom = hoch/runter
+ */
+
+.enilive-card__photo {
+  position: absolute;
+  right: -95%;
+  bottom: 10px;
+  width: 350%;
+  max-width: none;
+  height: auto;
+  object-fit: contain;
+  object-position: right bottom;
+}
+
+.enilive-card__photo-shade {
+  position: absolute;
+  top: -8%;
+  right: -10%;
+  z-index: 3;
+  width: 62%;
+  height: 116%;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(32, 39, 43, 0.46) 0%,
+      rgba(0, 126, 173, 0.1) 30%,
+      rgba(0, 142, 152, 0.04) 68%,
+      rgba(0, 139, 122, 0.17) 100%
+    );
+  border-radius: 55% 0 0 55% / 100% 0 0 100%;
+  pointer-events: none;
+}
+
+.enilive-card__curve {
+  position: absolute;
+  top: -8%;
+  right: -10%;
+  z-index: 4;
+  width: 62%;
+  height: 116%;
+  border-left: 6px solid #00a9d4;
+  border-radius: 55% 0 0 55% / 100% 0 0 100%;
+  box-shadow:
+    -3px 0 0 rgba(0, 142, 152, 0.72),
+    -7px 0 14px rgba(32, 39, 43, 0.3);
+  pointer-events: none;
+}
+
+/* =====================================================
+   LOGO-FLÄCHEN VORNE UND HINTEN
+   ===================================================== */
+
+.enilive-card__front-logo-panel,
+.enilive-card__back-logo-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 8;
+  display: flex;
+  width: 285px;
+  height: 106px;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 24px 9px 48px;
+  background: #20272b;
+  border-bottom-left-radius: 58px;
+  box-shadow:
+    0 6px 18px rgba(32, 39, 43, 0.35),
+    0 3px 5px rgba(32, 39, 43, 0.2);
+}
+
+/* Exakt einfarbiges Logo in Enilive-Cyan */
+
+.enilive-card__front-logo-panel::after,
+.enilive-card__back-logo-panel::after {
+  content: "";
+  position: absolute;
+  inset: 9px 24px 9px 48px;
+  z-index: 2;
+  background: #00a9d4;
+  -webkit-mask:
+    url("/images/enilive/enilive-logo.png")
+    center / contain
+    no-repeat;
+  mask:
+    url("/images/enilive/enilive-logo.png")
+    center / contain
+    no-repeat;
+  filter:
+    drop-shadow(0 3px 3px rgba(32, 39, 43, 0.34));
+}
+
+.enilive-card__front-logo,
+.enilive-card__back-logo {
+  display: block;
+  width: auto;
+  height: 82px;
+  object-fit: contain;
+  opacity: 0;
+}
+
+/* =====================================================
+   LINKER TEXTBEREICH
+   ===================================================== */
+
+.enilive-card__content {
+  position: absolute;
+  inset: 0 auto 0 0;
+  z-index: 7;
+  width: 55%;
+  padding: 38px 20px 27px 40px;
+}
+
+.enilive-card__name {
+  margin: 0;
+  color: #ffffff;
+  font-size: 53px;
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -1.7px;
+  text-shadow: 0 3px 7px rgba(32, 39, 43, 0.22);
+}
+
+.enilive-card__position {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 11px 0 0;
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.enilive-card__position strong {
+  color: #00a9d4;
+  font-size: 29px;
+  font-weight: 800;
+}
+
+.enilive-card__short-line {
+  width: 75px;
+  height: 4px;
+  margin: 22px 0 20px;
+  background:
+    linear-gradient(
+      135deg,
+      #007ead 0%,
+      #00a9d4 38%,
+      #008e98 68%,
+      #008b7a 100%
+    );
+}
+
+/* =====================================================
+   KONTAKTDATEN
+   ===================================================== */
+
+.enilive-card__contact {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  font-style: normal;
+}
+
+.enilive-card__contact-row {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 10px;
+  align-items: center;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.enilive-card__contact-row p {
+  margin: 0;
+}
+
+.enilive-card__contact-icon {
+  display: grid;
+  width: 29px;
+  height: 29px;
+  place-items: center;
+  color: #00a9d4;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 800;
+}
+
+.enilive-card__long-line {
+  width: 300px;
+  height: 3px;
+  margin: 17px 0 16px;
+  background:
+    linear-gradient(
+      90deg,
+      #00a9d4 0%,
+      #008e98 70%,
+      transparent 100%
+    );
+}
+
+/* =====================================================
+   LEISTUNGEN
+   ===================================================== */
+
+.enilive-card__services {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 365px;
+}
+
+.enilive-card__service-column {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  padding-right: 12px;
+}
+
+.enilive-card__service-column--right {
+  padding-right: 0;
+  padding-left: 16px;
+  border-left: 2px solid rgba(255, 255, 255, 0.72);
+}
+
+.enilive-card__service {
+  display: grid;
+  grid-template-columns: 31px 1fr;
+  gap: 7px;
+  align-items: center;
+  min-height: 30px;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 1.15;
+}
+
+.enilive-card__service-icon {
+  display: grid;
+  width: 29px;
+  height: 29px;
+  place-items: center;
+  color: #00a9d4;
+  font-size: 21px;
+  font-weight: 800;
+}
+
+/* Standortfeld */
+
+.enilive-card__location {
+  position: absolute;
+  right: 28px;
+  bottom: 24px;
+  z-index: 8;
+  padding: 10px 16px;
+  color: #00a9d4;
+  background: #20272b;
+  border-left: 4px solid #007ead;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow:
+    0 7px 16px rgba(32, 39, 43, 0.58),
+    0 3px 5px rgba(32, 39, 43, 0.38);
+  text-shadow:
+    0 2px 3px rgba(32, 39, 43, 0.65);
+}
+
+/* =====================================================
+   GUTSCHEIN-RÜCKSEITE
+   ===================================================== */
+
+.enilive-card--back {
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 23% 18%,
+      rgba(0, 169, 212, 0.09),
+      transparent 31%
+    ),
+    #ffffff;
+}
+
+.enilive-card--back::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    linear-gradient(
+      125deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(0, 169, 212, 0.04) 100%
+    );
+  pointer-events: none;
+}
+
+/* =====================================================
+   GUTSCHEINTEXT
+   ===================================================== */
+
+.enilive-card__voucher-content {
+  position: absolute;
+  top: 91px;
+  left: 48px;
+  z-index: 5;
+  width: 630px;
+}
+
+.enilive-card__voucher-title {
+  margin: 0 0 42px;
+  color: #007ead;
+  font-size: 35px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.enilive-card__writing-lines {
+  display: grid;
+  width: 620px;
+  gap: 42px;
+}
+
+.enilive-card__writing-line {
+  height: 3px;
+  background-image:
+    radial-gradient(
+      circle,
+      #20272b 1.5px,
+      transparent 1.8px
+    );
+  background-position: left center;
+  background-size: 7px 3px;
+  background-repeat: repeat-x;
+}
+
+.enilive-card__signature {
+  width: 265px;
+  margin-top: 57px;
+}
+
+.enilive-card__signature-label {
+  display: block;
+  margin-bottom: 65px;
+  color: #007ead;
+  font-size: 23px;
+  font-weight: 800;
+}
+
+/* =====================================================
+   SCHRIFTZUG „GUTE FAHRT“
+   ===================================================== */
+
+.enilive-card__good-trip {
+  position: absolute;
+  top: 278px;
+  right: 72px;
+  z-index: 6;
+  margin: 0;
+  color: #007ead;
+  font-family: "Great Vibes", cursive;
+  font-size: 56px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  transform: rotate(-7deg);
+  transform-origin: center;
+  text-shadow:
+    0 2px 2px rgba(255, 255, 255, 0.8),
+    0 4px 5px rgba(32, 39, 43, 0.34);
+}
+
+/* Tankstellenbild hinten */
+
+.enilive-card__back-photo {
+  position: absolute;
+  right: -10px;
+  bottom: 1px;
+  z-index: 2;
+  width: 120%;
+  height: 225px;
+  object-fit: contain;
+  object-position: right bottom;
+  -webkit-mask-image:
+    linear-gradient(
+      110deg,
+      transparent 0%,
+      rgba(32, 39, 43, 0.2) 13%,
+      #20272b 32%,
+      #20272b 100%
+    );
+  mask-image:
+    linear-gradient(
+      110deg,
+      transparent 0%,
+      rgba(32, 39, 43, 0.2) 13%,
+      #20272b 32%,
+      #20272b 100%
+    );
+}
+
+/* Punktmuster */
+
+.enilive-card__dots {
+  position: absolute;
+  bottom: 24px;
+  left: 30px;
+  z-index: 3;
+  width: 370px;
+  height: 90px;
+  opacity: 0.72;
+  background-image:
+    radial-gradient(
+      circle,
+      #007ead 2px,
+      transparent 2.4px
+    );
+  background-size: 9px 9px;
+  transform: skewY(4deg);
+  -webkit-mask-image:
+    linear-gradient(
+      90deg,
+      #20272b 0%,
+      rgba(32, 39, 43, 0.65) 65%,
+      transparent 100%
+    );
+  mask-image:
+    linear-gradient(
+      90deg,
+      #20272b 0%,
+      rgba(32, 39, 43, 0.65) 65%,
+      transparent 100%
+    );
+}
+
+/* Untere Ecke in Enilive-Anthrazit */
+
+.enilive-card__bottom-wave {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 4;
+  height: 84px;
+  background: #20272b;
+  clip-path:
+    polygon(
+      0 22%,
+      10% 50%,
+      24% 76%,
+      45% 91%,
+      70% 98%,
+      100% 100%,
+      0 100%
+    );
+}
+
+.enilive-card__bottom-wave::before {
+  content: "";
+  position: absolute;
+  inset: 7px 0 auto;
+  height: 5px;
+  background: #ffffff;
+  clip-path:
+    polygon(
+      0 0,
+      10% 31%,
+      24% 57%,
+      45% 72%,
+      70% 79%,
+      100% 81%,
+      100% 100%,
+      0 100%
+    );
+}
+
+/* =====================================================
+   DRUCK
+   ===================================================== */
+
+@media print {
+  .enilive-card {
+    width: 85mm;
+    height: 55mm;
+  }
+
+  .enilive-card--front,
+  .enilive-card__photo,
+  .enilive-card--back,
+  .enilive-card__back-photo {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}

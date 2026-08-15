@@ -1,0 +1,87 @@
+:root {
+  /* Neue Enilive-Farbwelt */
+  --enilive-blue: #007ead;
+  --enilive-cyan: #00a9d4;
+  --enilive-turquoise: #008e98;
+  --enilive-green: #008b7a;
+
+  --enilive-white: #ffffff;
+  --enilive-anthracite: #20272b;
+  --enilive-light: #eef8fa;
+  --enilive-border: #c8e4e9;
+
+  --enilive-gradient: linear-gradient(
+    135deg,
+    #007ead 0%,
+    #00a9d4 38%,
+    #008e98 68%,
+    #008b7a 100%
+  );
+
+  font-family:
+    Inter, Montserrat, Arial, Helvetica, sans-serif;
+  color: var(--enilive-anthracite);
+  background-color: #e8edef;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, #ffffff 0, transparent 35%),
+    #e8edef;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+@media print {
+  @page {
+    size: 85mm 55mm;
+    margin: 0;
+  }
+
+  html,
+  body,
+  #root {
+    width: 85mm;
+    height: 55mm;
+    min-width: 85mm;
+    min-height: 55mm;
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+  }
+
+  body {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}
