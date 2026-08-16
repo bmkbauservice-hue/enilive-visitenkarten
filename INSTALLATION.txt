@@ -1,0 +1,23 @@
+TOMMY-KARTE IN VS CODE EINBAUEN
+
+1. ZIP herunterladen.
+2. ZIP direkt im Projektordner entpacken:
+   ~/Schreibtisch/enilive-visitenkarten
+3. Vorhandene App.jsx beim Entpacken überschreiben lassen.
+4. Im Terminal ausführen:
+
+   cd ~/Schreibtisch/enilive-visitenkarten
+   npm run lint
+   npm run build
+   npm run dev
+
+5. Im Browser auf den Button "Tommy" klicken.
+6. Über "Design Dunkel" und "Design Hell" beliebig wechseln.
+
+Der Design-Umschalter wird beim Drucken automatisch ausgeblendet.
+
+Enthalten:
+- src/App.jsx
+- src/pages/Tommy/Tommy.jsx
+- src/pages/Tommy/Tommy.css
+- public/images/tankstellen/tommy.png
