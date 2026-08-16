@@ -1,0 +1,409 @@
+/* =====================================================
+   GEMEINSAME TOMMY-EINSTELLUNGEN
+   ===================================================== */
+
+.tommy-card .enilive-card__contact-row:last-child,
+.tommy-card .enilive-card__service-column--right {
+  display: none;
+}
+
+.tommy-card__design-switch {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.tommy-card__design-switch button {
+  padding: 9px 18px;
+  color: #007ead;
+  font: inherit;
+  font-weight: 700;
+  background: #ffffff;
+  border: 2px solid #00a9d4;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.tommy-card__design-switch button:hover,
+.tommy-card__design-switch button.is-active {
+  color: #ffffff;
+  background: #007ead;
+  box-shadow: 0 0 12px #00a9d4;
+}
+
+.tommy-card .enilive-card__content {
+  inset: 0;
+  width: 100%;
+  padding: 0;
+}
+
+.tommy-card .enilive-card__curve {
+  display: none;
+}
+
+.tommy-card .enilive-card__service-column:first-child {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding: 0;
+}
+
+/* =====================================================
+   DESIGN 1: TOMMY EXCLUSIVE
+   Vollflächiges Foto, Leistungsfelder und Kontaktleiste
+   ===================================================== */
+
+.tommy-card--exclusive .enilive-card--front {
+  background: #20272b;
+}
+
+.tommy-card--exclusive .enilive-card--front::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+  height: 176px;
+  background: rgba(32, 39, 43, 0.96);
+}
+
+.tommy-card--exclusive .enilive-card__photo-background,
+.tommy-card--exclusive .enilive-card__photo-frame,
+.tommy-card--exclusive .enilive-card__photo-shade {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+}
+
+.tommy-card--exclusive .enilive-card__photo {
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.tommy-card--exclusive .enilive-card__photo-shade {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(32, 39, 43, 0.22) 0%,
+      rgba(32, 39, 43, 0.04) 48%,
+      rgba(32, 39, 43, 0.5) 100%
+    );
+}
+
+.tommy-card--exclusive .enilive-card__content header {
+  position: absolute;
+  top: 24px;
+  left: 38px;
+  z-index: 8;
+  width: 510px;
+  padding: 15px 24px 18px;
+  background: rgba(32, 39, 43, 0.94);
+  clip-path: polygon(0 0, 100% 0, 88% 100%, 0 100%);
+}
+
+.tommy-card--exclusive .enilive-card__name {
+  color: #ffffff;
+  font-size: 42px;
+  letter-spacing: -1px;
+}
+
+.tommy-card--exclusive .enilive-card__position {
+  margin-top: 8px;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.tommy-card--exclusive .enilive-card__position strong {
+  font-size: 21px;
+}
+
+.tommy-card--exclusive .enilive-card__short-line {
+  position: absolute;
+  top: 142px;
+  left: 0;
+  width: 520px;
+  height: 8px;
+  margin: 0;
+}
+
+.tommy-card--exclusive .enilive-card__front-logo-panel {
+  top: 20px;
+  right: 26px;
+  width: 180px;
+  height: 94px;
+  padding: 8px 18px;
+  background: rgba(32, 39, 43, 0.94);
+  border: 2px solid #00a9d4;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #007ead;
+}
+
+.tommy-card--exclusive .enilive-card__front-logo-panel::after {
+  inset: 8px 18px;
+}
+
+.tommy-card--exclusive .enilive-card__long-line {
+  position: absolute;
+  right: 0;
+  bottom: 171px;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  margin: 0;
+}
+
+.tommy-card--exclusive .enilive-card__services {
+  position: absolute;
+  right: 38px;
+  bottom: 188px;
+  left: 38px;
+  z-index: 8;
+  display: block;
+  width: auto;
+}
+
+.tommy-card--exclusive .enilive-card__service {
+  min-height: 52px;
+  padding: 6px 14px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: rgba(32, 39, 43, 0.93);
+  border: 2px solid #00a9d4;
+  border-radius: 9px;
+}
+
+.tommy-card--exclusive .enilive-card__contact {
+  position: absolute;
+  right: 38px;
+  bottom: 25px;
+  left: 38px;
+  z-index: 8;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.tommy-card--exclusive .enilive-card__contact-row {
+  position: relative;
+  min-height: 104px;
+  padding-top: 32px;
+  color: #ffffff;
+  border-right: 2px solid #007ead;
+}
+
+.tommy-card--exclusive .enilive-card__contact-row:nth-child(3) {
+  border-right: 0;
+}
+
+.tommy-card--exclusive .enilive-card__contact-row::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #00a9d4;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.tommy-card--exclusive .enilive-card__contact-row:nth-child(1)::before {
+  content: "STANDORT";
+}
+
+.tommy-card--exclusive .enilive-card__contact-row:nth-child(2)::before {
+  content: "TELEFON";
+}
+
+.tommy-card--exclusive .enilive-card__contact-row:nth-child(3)::before {
+  content: "MOBIL";
+}
+
+/* =====================================================
+   DESIGN 2: BLAU–GRAU–WEISS
+   Heller Kopf, Panorama und grauer Informationsbereich
+   ===================================================== */
+
+.tommy-card--blue-gray .enilive-card--front {
+  background: #ffffff;
+}
+
+.tommy-card--blue-gray .enilive-card--front::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+  height: 180px;
+  background: #d9e1e5;
+  border-top: 7px solid #007ead;
+  border-bottom: 14px solid #007ead;
+}
+
+.tommy-card--blue-gray .enilive-card__photo-background,
+.tommy-card--blue-gray .enilive-card__photo-frame,
+.tommy-card--blue-gray .enilive-card__photo-shade {
+  top: 120px;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 250px;
+  border-radius: 0;
+}
+
+.tommy-card--blue-gray .enilive-card__photo-background {
+  background: #007ead;
+}
+
+.tommy-card--blue-gray .enilive-card__photo {
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: grayscale(1) contrast(1.12) sepia(0.18) hue-rotate(145deg) saturate(1.35);
+}
+
+.tommy-card--blue-gray .enilive-card__photo-shade {
+  background: rgba(0, 126, 173, 0.23);
+  clip-path: polygon(0 0, 80% 0, 68% 100%, 0 100%);
+}
+
+.tommy-card--blue-gray .enilive-card__front-logo-panel {
+  top: 14px;
+  right: auto;
+  left: 30px;
+  width: 148px;
+  height: 92px;
+  padding: 8px 16px;
+  background: #007ead;
+  border-radius: 11px;
+  box-shadow: none;
+}
+
+.tommy-card--blue-gray .enilive-card__front-logo-panel::after {
+  inset: 8px 16px;
+  background: #ffffff;
+  filter: drop-shadow(0 0 6px #ffffff);
+}
+
+.tommy-card--blue-gray .enilive-card__content header {
+  position: absolute;
+  top: 22px;
+  left: 210px;
+  z-index: 8;
+}
+
+.tommy-card--blue-gray .enilive-card__name {
+  color: #20272b;
+  font-size: 42px;
+  letter-spacing: -1px;
+  text-shadow: none;
+}
+
+.tommy-card--blue-gray .enilive-card__position {
+  margin-top: 8px;
+  color: #007ead;
+  font-size: 16px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.tommy-card--blue-gray .enilive-card__position strong {
+  color: #007ead;
+  font-size: 18px;
+}
+
+.tommy-card--blue-gray .enilive-card__short-line {
+  position: absolute;
+  top: 115px;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  margin: 0;
+  background: #00a9d4;
+}
+
+.tommy-card--blue-gray .enilive-card__long-line {
+  position: absolute;
+  right: 0;
+  bottom: 174px;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  margin: 0;
+  background: #00a9d4;
+}
+
+.tommy-card--blue-gray .enilive-card__contact {
+  position: absolute;
+  bottom: 30px;
+  left: 38px;
+  z-index: 8;
+  display: grid;
+  width: 280px;
+  gap: 8px;
+}
+
+.tommy-card--blue-gray .enilive-card__contact-row {
+  color: #20272b;
+  font-size: 15px;
+}
+
+.tommy-card--blue-gray .enilive-card__contact-row:first-child {
+  position: absolute;
+  bottom: 190px;
+  left: 0;
+  width: 315px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.94);
+  border-radius: 9px;
+}
+
+.tommy-card--blue-gray .enilive-card__contact-row:nth-child(2)::before {
+  content: "KONTAKT";
+  display: block;
+  grid-column: 1 / -1;
+  margin-bottom: 3px;
+  color: #007ead;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.tommy-card--blue-gray .enilive-card__services {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  z-index: 8;
+  display: block;
+  width: 460px;
+}
+
+.tommy-card--blue-gray .enilive-card__service-column:first-child {
+  gap: 14px;
+}
+
+.tommy-card--blue-gray .enilive-card__service {
+  min-height: 108px;
+  padding: 13px 8px;
+  color: #20272b;
+  font-size: 13px;
+  font-weight: 700;
+  background: #ffffff;
+  border: 2px solid #007ead;
+  border-radius: 11px;
+}
+
+@media print {
+  .tommy-card__design-switch {
+    display: none;
+  }
+}

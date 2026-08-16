@@ -4,6 +4,7 @@ import "./App.css"
 import Guelzower from "./pages/Guelzower/Guelzower"
 import Ahrensfelde from "./pages/Ahrensfelde/Ahrensfelde"
 import Blumberg from "./pages/Blumberg/Blumberg"
+import Tommy from "./pages/Tommy/Tommy"
 
 const cards = [
   {
@@ -23,6 +24,12 @@ const cards = [
     button: "Blumberger Chaussee",
     title: "Marco Köpke – Ahrensfelde",
     Component: Blumberg,
+  },
+  {
+    id: "tommy",
+    button: "Tommy",
+    title: "Thomas Weickardt – Dietzgenstraße",
+    Component: Tommy,
   },
 ]
 
