@@ -26,7 +26,9 @@
     #20272b;
 }
 
-/* Rechter Bildbereich */
+/* =====================================================
+   RECHTER BILDBEREICH
+   ===================================================== */
 
 .enilive-card__photo-background {
   position: absolute;
@@ -67,9 +69,9 @@
 
 .enilive-card__photo {
   position: absolute;
-  right: -95%;
-  bottom: 10px;
-  width: 350%;
+  right: 11%;
+  bottom: 45px;
+  width: 160%;
   max-width: none;
   height: auto;
   object-fit: contain;
@@ -128,12 +130,26 @@
   padding: 9px 24px 9px 48px;
   background: #20272b;
   border-bottom-left-radius: 58px;
+}
+
+/* Blauer Leuchtschatten nur vorne */
+
+.enilive-card__front-logo-panel {
+  box-shadow:
+    0 0 8px #00a9d4,
+    0 0 18px #007ead,
+    0 0 28px #008e98;
+}
+
+/* Dezenter Schatten auf der Rückseite */
+
+.enilive-card__back-logo-panel {
   box-shadow:
     0 6px 18px rgba(32, 39, 43, 0.35),
     0 3px 5px rgba(32, 39, 43, 0.2);
 }
 
-/* Exakt einfarbiges Logo in Enilive-Cyan */
+/* Einfarbiges Logo in Enilive-Cyan */
 
 .enilive-card__front-logo-panel::after,
 .enilive-card__back-logo-panel::after {
@@ -150,8 +166,25 @@
     url("/images/enilive/enilive-logo.png")
     center / contain
     no-repeat;
+}
+
+/* Leuchteffekt direkt am vorderen Logo */
+
+.enilive-card__front-logo-panel::after {
   filter:
-    drop-shadow(0 3px 3px rgba(32, 39, 43, 0.34));
+    drop-shadow(0 0 3px #ffffff)
+    drop-shadow(0 0 8px #00a9d4)
+    drop-shadow(0 0 16px #007ead)
+    drop-shadow(0 0 24px #008e98);
+}
+
+/* Normaler Schatten am hinteren Logo */
+
+.enilive-card__back-logo-panel::after {
+  filter:
+    drop-shadow(
+      0 3px 3px rgba(32, 39, 43, 0.34)
+    );
 }
 
 .enilive-card__front-logo,
@@ -182,7 +215,8 @@
   font-weight: 800;
   line-height: 0.98;
   letter-spacing: -1.7px;
-  text-shadow: 0 3px 7px rgba(32, 39, 43, 0.22);
+  text-shadow:
+    0 3px 7px rgba(32, 39, 43, 0.22);
 }
 
 .enilive-card__position {
@@ -266,6 +300,11 @@
     );
 }
 
+.enilive-card__email-address {
+  color: #00a9d4;
+  font-weight: 700;
+}
+
 /* =====================================================
    LEISTUNGEN
    ===================================================== */
@@ -286,7 +325,8 @@
 .enilive-card__service-column--right {
   padding-right: 0;
   padding-left: 16px;
-  border-left: 2px solid rgba(255, 255, 255, 0.72);
+  border-left:
+    2px solid rgba(255, 255, 255, 0.72);
 }
 
 .enilive-card__service {
@@ -310,27 +350,10 @@
   font-weight: 800;
 }
 
-/* Standortfeld */
-
-.enilive-card__location {
-  position: absolute;
-  right: 28px;
-  bottom: 24px;
-  z-index: 8;
-  padding: 10px 16px;
-  color: #00a9d4;
-  background: #20272b;
-  border-left: 4px solid #007ead;
-  font-size: 16px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  box-shadow:
-    0 7px 16px rgba(32, 39, 43, 0.58),
-    0 3px 5px rgba(32, 39, 43, 0.38);
-  text-shadow:
-    0 2px 3px rgba(32, 39, 43, 0.65);
-}
+/*
+ * Das Standortfeld wurde entfernt.
+ * Dadurch gibt es keinen Button mehr auf der Vorderseite.
+ */
 
 /* =====================================================
    GUTSCHEIN-RÜCKSEITE
@@ -419,7 +442,7 @@
 
 .enilive-card__good-trip {
   position: absolute;
-  top: 278px;
+  top: 240px;
   right: 72px;
   z-index: 6;
   margin: 0;
@@ -438,36 +461,27 @@
     0 4px 5px rgba(32, 39, 43, 0.34);
 }
 
-/* Tankstellenbild hinten */
+/* =====================================================
+   TANKSTELLENBILD HINTEN
+   ===================================================== */
 
 .enilive-card__back-photo {
   position: absolute;
-  right: -10px;
-  bottom: 1px;
-  z-index: 2;
-  width: 120%;
-  height: 225px;
-  object-fit: contain;
-  object-position: right bottom;
-  -webkit-mask-image:
-    linear-gradient(
-      110deg,
-      transparent 0%,
-      rgba(32, 39, 43, 0.2) 13%,
-      #20272b 32%,
-      #20272b 100%
-    );
-  mask-image:
-    linear-gradient(
-      110deg,
-      transparent 0%,
-      rgba(32, 39, 43, 0.2) 13%,
-      #20272b 32%,
-      #20272b 100%
-    );
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.3;
+  filter: saturate(0.9);
+  -webkit-mask-image: none;
+  mask-image: none;
 }
 
-/* Punktmuster */
+/* =====================================================
+   PUNKTMUSTER
+   ===================================================== */
 
 .enilive-card__dots {
   position: absolute;
@@ -501,7 +515,9 @@
     );
 }
 
-/* Untere Ecke in Enilive-Anthrazit */
+/* =====================================================
+   UNTERE ECKE IN ENILIVE-ANTHRAZIT
+   ===================================================== */
 
 .enilive-card__bottom-wave {
   position: absolute;

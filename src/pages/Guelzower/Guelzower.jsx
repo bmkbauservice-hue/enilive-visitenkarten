@@ -5,7 +5,7 @@ const guelzowerData = {
   location: "Gülzower",
 
   address: [
-    "Gülzower Str. 15 a",
+    "Gülzower Str. 15a",
     "12619 Berlin",
   ],
 
@@ -17,8 +17,8 @@ const guelzowerData = {
 
   servicesLeft: [
     {
-      icon: "24",
-      text: "Stunden-Service",
+      icon: "◷",
+      text: "24-Stunden-Service",
     },
     {
       icon: "▣",
@@ -26,18 +26,18 @@ const guelzowerData = {
     },
     {
       icon: "✦",
-      text: "SONAX Waschanlage",
+      text: "SONAX-Waschanlage",
     },
     {
       icon: "▤",
-      text: "Getränke Markt",
+      text: "Getränkemarkt",
     },
   ],
 
   servicesRight: [
     {
       icon: "⚒",
-      text: "KFZ-Service",
+      text: "Kfz-Service",
     },
     {
       icon: "◇",
@@ -45,11 +45,11 @@ const guelzowerData = {
     },
     {
       icon: "▷",
-      text: "DEKRA Stützpunkt",
+      text: "DEKRA-Stützpunkt",
     },
     {
       icon: "□",
-      text: "Hermes Paket-Shop",
+      text: "Hermes PaketShop",
     },
   ],
 }

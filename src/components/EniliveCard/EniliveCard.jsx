@@ -20,7 +20,9 @@ export default function EniliveCard({ station }) {
     <section className="card-preview">
       {/* Vorderseite */}
       <article className="card-side">
-        <p className="card-side__label">Vorderseite</p>
+        <p className="card-side__label">
+          Vorderseite
+        </p>
 
         <div className="business-card enilive-card enilive-card--front">
           <div className="enilive-card__photo-background" />
@@ -39,6 +41,7 @@ export default function EniliveCard({ station }) {
           <div className="enilive-card__photo-shade" />
           <div className="enilive-card__curve" />
 
+          {/* Logo Vorderseite */}
           <div className="enilive-card__front-logo-panel">
             <img
               className="enilive-card__front-logo"
@@ -47,6 +50,7 @@ export default function EniliveCard({ station }) {
             />
           </div>
 
+          {/* Inhalt Vorderseite */}
           <div className="enilive-card__content">
             <header>
               <h2 className="enilive-card__name">
@@ -61,7 +65,9 @@ export default function EniliveCard({ station }) {
 
             <div className="enilive-card__short-line" />
 
+            {/* Kontaktdaten */}
             <address className="enilive-card__contact">
+              {/* Adresse */}
               <div className="enilive-card__contact-row">
                 <span
                   className="enilive-card__contact-icon"
@@ -80,6 +86,7 @@ export default function EniliveCard({ station }) {
                 </p>
               </div>
 
+              {/* Telefonnummer */}
               <div className="enilive-card__contact-row">
                 <span
                   className="enilive-card__contact-icon"
@@ -88,9 +95,10 @@ export default function EniliveCard({ station }) {
                   ☎
                 </span>
 
-                <p>Tel. {station.phone}</p>
+                <p>Tel.: {station.phone}</p>
               </div>
 
+              {/* Mobilnummer – nur wenn vorhanden */}
               {station.mobile && (
                 <div className="enilive-card__contact-row">
                   <span
@@ -100,10 +108,11 @@ export default function EniliveCard({ station }) {
                     ▣
                   </span>
 
-                  <p>Mobil {station.mobile}</p>
+                  <p>Mobil: {station.mobile}</p>
                 </div>
               )}
 
+              {/* E-Mail-Adresse */}
               <div className="enilive-card__contact-row">
                 <span
                   className="enilive-card__contact-icon"
@@ -112,12 +121,18 @@ export default function EniliveCard({ station }) {
                   ✉
                 </span>
 
-                <p>E-Mail {station.email}</p>
+                <p>
+                  E-Mail:{" "}
+                  <span className="enilive-card__email-address">
+                    {station.email}
+                  </span>
+                </p>
               </div>
             </address>
 
             <div className="enilive-card__long-line" />
 
+            {/* Leistungen */}
             <div className="enilive-card__services">
               <div className="enilive-card__service-column">
                 {station.servicesLeft.map((service) => (
@@ -140,18 +155,17 @@ export default function EniliveCard({ station }) {
               </div>
             </div>
           </div>
-
-          <div className="enilive-card__location">
-            {station.location}
-          </div>
         </div>
       </article>
 
-      {/* Gutschein-Rückseite */}
+      {/* Rückseite */}
       <article className="card-side card-side--back">
-        <p className="card-side__label">Rückseite · Gutschein</p>
+        <p className="card-side__label">
+          Rückseite · Gutschein
+        </p>
 
         <div className="business-card enilive-card enilive-card--back">
+          {/* Logo Rückseite */}
           <div className="enilive-card__back-logo-panel">
             <img
               className="enilive-card__back-logo"
@@ -160,6 +174,7 @@ export default function EniliveCard({ station }) {
             />
           </div>
 
+          {/* Gutscheininhalt */}
           <div className="enilive-card__voucher-content">
             <h2 className="enilive-card__voucher-title">
               Gutschein für:
@@ -179,10 +194,12 @@ export default function EniliveCard({ station }) {
             </div>
           </div>
 
+          {/* Schriftzug */}
           <p className="enilive-card__good-trip">
             Gute Fahrt
           </p>
 
+          {/* Hintergrundbild Rückseite */}
           <img
             className="enilive-card__back-photo"
             src={station.image}
