@@ -21,7 +21,7 @@ const ahrensfeldeStation = {
     },
     {
       icon: "✦",
-      text: "SONAX Wagenpflege Waschanlage",
+      text: "SONAX Waschanlage",
     },
     {
       icon: "▤",
