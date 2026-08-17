@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import "./TommyVCard.css"
 
 const services = [
@@ -20,6 +21,33 @@ const routeUrl =
 
 export default function TommyVCard() {
   const baseUrl = import.meta.env.BASE_URL
+
+  useEffect(() => {
+    document.title = "Thomas Weickardt · Digitale VCard"
+
+    const ensureLink = (rel, href) => {
+      let link = document.querySelector(`link[rel="${rel}"]`)
+
+      if (!link) {
+        link = document.createElement("link")
+        link.rel = rel
+        document.head.appendChild(link)
+      }
+
+      link.href = href
+    }
+
+    ensureLink("manifest", `${baseUrl}manifest-tommy.webmanifest`)
+    ensureLink("apple-touch-icon", `${baseUrl}icons/tommy-vcard-180.png`)
+
+    let themeColor = document.querySelector('meta[name="theme-color"]')
+    if (!themeColor) {
+      themeColor = document.createElement("meta")
+      themeColor.name = "theme-color"
+      document.head.appendChild(themeColor)
+    }
+    themeColor.content = "#008B7A"
+  }, [baseUrl])
 
   return (
     <main className="tommy-vcard">
