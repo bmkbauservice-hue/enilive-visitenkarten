@@ -1,0 +1,10 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Weickardt;Thomas;;;
+FN:Thomas Weickardt
+ORG:Enilive Service-Station
+TEL;TYPE=WORK,VOICE:+493047750441
+TEL;TYPE=CELL:+491776110689
+ADR;TYPE=WORK:;;Dietzgenstraße 127;Berlin;;13158;Deutschland
+END:VCARD
+

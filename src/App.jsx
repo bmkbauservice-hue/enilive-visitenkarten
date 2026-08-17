@@ -5,6 +5,7 @@ import Guelzower from "./pages/Guelzower/Guelzower"
 import Ahrensfelde from "./pages/Ahrensfelde/Ahrensfelde"
 import Blumberg from "./pages/Blumberg/Blumberg"
 import Tommy from "./pages/Tommy/Tommy"
+import TommyVCard from "./pages/OnlineVCard/Tommy/TommyVCard"
 
 const cards = [
   {
@@ -36,6 +37,10 @@ const cards = [
 function App() {
   const [selectedCard, setSelectedCard] =
     useState("guelzower")
+
+  if (window.location.pathname === "/vcard/tommy") {
+    return <TommyVCard />
+  }
 
   const activeCard = cards.find(
     (card) => card.id === selectedCard,
