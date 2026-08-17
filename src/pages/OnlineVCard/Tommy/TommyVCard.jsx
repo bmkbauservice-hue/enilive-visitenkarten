@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import "./TommyVCard.css"
 
 const services = [
@@ -21,6 +21,7 @@ const routeUrl =
 
 export default function TommyVCard() {
   const baseUrl = import.meta.env.BASE_URL
+  const [phoneMenuOpen, setPhoneMenuOpen] = useState(false)
 
   useEffect(() => {
     document.title = "Thomas Weickardt · Digitale VCard"
@@ -89,10 +90,30 @@ export default function TommyVCard() {
           </div>
 
           <div className="tommy-vcard__actions">
-            <a className="tommy-vcard__action" href="tel:+493047750441">
+            <button
+              className="tommy-vcard__action"
+              type="button"
+              onClick={() => setPhoneMenuOpen((isOpen) => !isOpen)}
+              aria-expanded={phoneMenuOpen}
+              aria-controls="tommy-phone-options"
+            >
               <span aria-hidden="true">☎</span>
               <strong>Anrufen</strong>
-            </a>
+            </button>
+
+            {phoneMenuOpen && (
+              <div className="tommy-vcard__action-panel" id="tommy-phone-options">
+                <strong>Telefonnummer auswählen</strong>
+                <a href="tel:+493047750441">
+                  <span>Festnetz</span>
+                  <b>030 47750441</b>
+                </a>
+                <a href="tel:+491776110689">
+                  <span>Mobil</span>
+                  <b>0177 6110689</b>
+                </a>
+              </div>
+            )}
 
             <a
               className="tommy-vcard__action"
