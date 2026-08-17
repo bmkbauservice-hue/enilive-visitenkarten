@@ -1,3 +1,4 @@
+import { useState } from "react"
 import "../Tommy/TommyVCard.css"
 
 const services = [
@@ -16,6 +17,36 @@ const routeUrl =
 
 export default function MarcoVCard() {
   const baseUrl = import.meta.env.BASE_URL
+  const [openMenu, setOpenMenu] = useState(null)
+  const [shareStatus, setShareStatus] = useState("")
+
+  const toggleMenu = (menu) => {
+    setShareStatus("")
+    setOpenMenu((currentMenu) => (currentMenu === menu ? null : menu))
+  }
+
+  const shareVCard = async () => {
+    const shareData = {
+      title: "Marco Köpke · Enilive Service-Station",
+      text: "Online-VCard von Marco Köpke – Enilive Service-Station Gülzower Straße",
+      url: window.location.href,
+    }
+
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData)
+        setShareStatus("VCard wurde geteilt.")
+        return
+      }
+
+      await navigator.clipboard.writeText(window.location.href)
+      setShareStatus("Link wurde kopiert.")
+    } catch (error) {
+      if (error?.name !== "AbortError") {
+        setShareStatus("Teilen war nicht möglich. Bitte den Link aus der Adresszeile kopieren.")
+      }
+    }
+  }
 
   return (
     <main className="tommy-vcard">
@@ -54,10 +85,29 @@ export default function MarcoVCard() {
           </div>
 
           <div className="tommy-vcard__actions">
-            <a className="tommy-vcard__action" href="tel:+493056293100">
+            <button
+              className="tommy-vcard__action"
+              type="button"
+              onClick={() => toggleMenu("phone")}
+              aria-expanded={openMenu === "phone"}
+              aria-controls="marco-phone-options"
+            >
               <span aria-hidden="true">☎</span>
               <strong>Anrufen</strong>
-            </a>
+            </button>
+            {openMenu === "phone" && (
+              <div className="tommy-vcard__action-panel" id="marco-phone-options">
+                <strong>Telefonnummer auswählen</strong>
+                <a href="tel:+493056293100">
+                  <span>Festnetz</span>
+                  <b>030 56293100</b>
+                </a>
+                <a href="tel:+491749329259">
+                  <span>Mobil</span>
+                  <b>0174 9329259</b>
+                </a>
+              </div>
+            )}
             <a
               className="tommy-vcard__action"
               href={routeUrl}
@@ -79,6 +129,34 @@ export default function MarcoVCard() {
               <span aria-hidden="true">✉</span>
               <strong>E-Mail senden</strong>
             </a>
+            <button
+              className="tommy-vcard__action tommy-vcard__action--wide"
+              type="button"
+              onClick={() => toggleMenu("more")}
+              aria-expanded={openMenu === "more"}
+              aria-controls="marco-more-options"
+            >
+              <span aria-hidden="true">•••</span>
+              <strong>Sonstiges</strong>
+            </button>
+            {openMenu === "more" && (
+              <div className="tommy-vcard__action-panel" id="marco-more-options">
+                <strong>Weitere Möglichkeiten</strong>
+                <a href="https://wa.me/491749329259" target="_blank" rel="noreferrer">
+                  <span>WhatsApp</span>
+                  <b>Nachricht schreiben</b>
+                </a>
+                <a href="sms:+491749329259">
+                  <span>SMS</span>
+                  <b>Nachricht senden</b>
+                </a>
+                <button type="button" onClick={shareVCard}>
+                  <span>Teilen</span>
+                  <b>VCard-Link weitergeben</b>
+                </button>
+                {shareStatus && <p className="tommy-vcard__share-status" role="status">{shareStatus}</p>}
+              </div>
+            )}
           </div>
 
           <section className="tommy-vcard__services" aria-labelledby="marco-services-title">

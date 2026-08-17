@@ -183,14 +183,80 @@
   color: var(--enilive-white);
   text-align: center;
   text-decoration: none;
+  font: inherit;
   background:
     linear-gradient(145deg, rgba(0, 126, 173, 0.32), rgba(0, 142, 152, 0.16));
   border: 2px solid #007ead;
   border-radius: 15px;
+  cursor: pointer;
   transition:
     transform 180ms ease,
     background 180ms ease,
     box-shadow 180ms ease;
+}
+
+.tommy-vcard__action--wide,
+.tommy-vcard__action-panel {
+  grid-column: 1 / -1;
+}
+
+.tommy-vcard__action-panel {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+  background: rgba(7, 21, 34, 0.94);
+  border: 1px solid rgba(0, 169, 212, 0.7);
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 126, 173, 0.3);
+}
+
+.tommy-vcard__action-panel > strong {
+  color: var(--enilive-cyan);
+  font-size: 13px;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+}
+
+.tommy-vcard__action-panel > a,
+.tommy-vcard__action-panel > button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  width: 100%;
+  min-height: 50px;
+  padding: 11px 13px;
+  color: var(--enilive-white);
+  font: inherit;
+  text-align: left;
+  text-decoration: none;
+  background: rgba(0, 126, 173, 0.2);
+  border: 1px solid rgba(0, 169, 212, 0.45);
+  border-radius: 11px;
+  cursor: pointer;
+}
+
+.tommy-vcard__action-panel > a:hover,
+.tommy-vcard__action-panel > button:hover {
+  background: rgba(0, 126, 173, 0.42);
+}
+
+.tommy-vcard__action-panel span {
+  color: #d7e5eb;
+  font-size: 13px;
+}
+
+.tommy-vcard__action-panel b {
+  color: var(--enilive-white);
+  font-size: 14px;
+  text-align: right;
+}
+
+.tommy-vcard__share-status {
+  margin: 2px 0 0;
+  color: var(--enilive-cyan);
+  font-size: 13px;
+  text-align: center;
 }
 
 .tommy-vcard__action:not(.tommy-vcard__action--disabled) {
