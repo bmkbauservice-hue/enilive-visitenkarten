@@ -34,7 +34,7 @@
   position: absolute;
   top: -8%;
   right: -10%;
-  z-index: 0;
+  z-index: 1;
   width: 62%;
   height: 116%;
   background:
@@ -159,11 +159,11 @@
   z-index: 2;
   background: #00a9d4;
   -webkit-mask:
-    url("/images/enilive/enilive-logo.png")
+    var(--enilive-logo-mask)
     center / contain
     no-repeat;
   mask:
-    url("/images/enilive/enilive-logo.png")
+    var(--enilive-logo-mask)
     center / contain
     no-repeat;
 }
@@ -437,6 +437,91 @@
 }
 
 /* =====================================================
+   RÜCKSEITE MIT ONLINE-VCARD UND QR-CODE
+   ===================================================== */
+
+.enilive-card--vcard-back {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(0, 169, 212, 0.16), transparent 32%),
+    linear-gradient(135deg, #ffffff 0%, #edf5f7 100%);
+}
+
+.enilive-card--vcard-back .enilive-card__back-photo {
+  opacity: 0.12;
+  filter: grayscale(0.25) saturate(0.8);
+}
+
+.enilive-card--vcard-back .enilive-card__dots {
+  width: 300px;
+  opacity: 0.4;
+}
+
+.enilive-card__vcard-content {
+  position: absolute;
+  inset: 124px 48px 88px;
+  z-index: 7;
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 42px;
+  align-items: center;
+}
+
+.enilive-card__vcard-copy {
+  color: #20272b;
+}
+
+.enilive-card__vcard-copy p {
+  margin: 0 0 14px;
+  color: #008e98;
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+}
+
+.enilive-card__vcard-copy h2 {
+  margin: 0 0 22px;
+  color: #007ead;
+  font-size: 51px;
+  line-height: 0.98;
+}
+
+.enilive-card__vcard-copy span {
+  display: block;
+  max-width: 430px;
+  font-size: 22px;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+.enilive-card__vcard-copy strong {
+  display: block;
+  margin-top: 24px;
+  color: #007ead;
+  font-size: 24px;
+}
+
+.enilive-card__qr-frame {
+  display: grid;
+  width: 220px;
+  height: 220px;
+  padding: 12px;
+  place-items: center;
+  background: #ffffff;
+  border: 4px solid #007ead;
+  box-shadow:
+    0 0 0 5px rgba(255, 255, 255, 0.92),
+    0 0 20px rgba(0, 126, 173, 0.32);
+}
+
+.enilive-card__qr-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* =====================================================
    SCHRIFTZUG „GUTE FAHRT“
    ===================================================== */
 
@@ -444,7 +529,7 @@
   position: absolute;
   top: 240px;
   right: 72px;
-  z-index: 4;
+  z-index: 6;
   margin: 0;
   color: #007ead;
   font-family: "Great Vibes", cursive;
@@ -470,7 +555,7 @@
   inset: 0;
   z-index: 1;
   width: 100%;
-  height: 102%;
+  height: 100%;
   object-fit: cover;
   object-position: center;
   opacity: 0.3;

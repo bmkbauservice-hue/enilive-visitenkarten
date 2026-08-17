@@ -6,6 +6,7 @@ import Ahrensfelde from "./pages/Ahrensfelde/Ahrensfelde"
 import Blumberg from "./pages/Blumberg/Blumberg"
 import Tommy from "./pages/Tommy/Tommy"
 import TommyVCard from "./pages/OnlineVCard/Tommy/TommyVCard"
+import MarcoVCard from "./pages/OnlineVCard/Marco/MarcoVCard"
 
 const cards = [
   {
@@ -38,8 +39,15 @@ function App() {
   const [selectedCard, setSelectedCard] =
     useState("guelzower")
 
-  if (window.location.pathname === "/vcard/tommy") {
+  const vcard = new URLSearchParams(window.location.search).get("vcard")
+  const path = window.location.pathname.replace(/\/$/, "")
+
+  if (vcard === "tommy" || path.endsWith("/vcard/tommy")) {
     return <TommyVCard />
+  }
+
+  if (vcard === "marco" || path.endsWith("/vcard/marco")) {
+    return <MarcoVCard />
   }
 
   const activeCard = cards.find(
@@ -59,7 +67,7 @@ function App() {
 
         <p>
           Vorder- und Rückseite im Originalverhältnis 85 × 55 mm.
-          Die Rückseite wird als Gutschein gestaltet.
+          Ausgewählte Karten erhalten eine digitale VCard mit QR-Code.
         </p>
 
         <nav

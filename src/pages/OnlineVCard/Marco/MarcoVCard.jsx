@@ -1,24 +1,20 @@
-import "./TommyVCard.css"
+import "../Tommy/TommyVCard.css"
 
 const services = [
-  {
-    icon: "✦",
-    title: "SONAX Waschanlage",
-  },
-  {
-    icon: "▤",
-    title: "Getränke Shop",
-  },
-  {
-    icon: "▰",
-    title: "Backshop",
-  },
+  { icon: "◷", title: "24-Stunden-Service" },
+  { icon: "▣", title: "SB-Waschanlage" },
+  { icon: "✦", title: "SONAX-Waschanlage" },
+  { icon: "▤", title: "Getränkemarkt" },
+  { icon: "⚒", title: "Kfz-Service" },
+  { icon: "◇", title: "Pickpoint" },
+  { icon: "▷", title: "DEKRA-Stützpunkt" },
+  { icon: "□", title: "Hermes PaketShop" },
 ]
 
 const routeUrl =
-  "https://www.google.com/maps/search/?api=1&query=Dietzgenstra%C3%9Fe+127%2C+13158+Berlin-Pankow"
+  "https://www.google.com/maps/search/?api=1&query=G%C3%BClzower+Str.+15a%2C+12619+Berlin"
 
-export default function TommyVCard() {
+export default function MarcoVCard() {
   const baseUrl = import.meta.env.BASE_URL
 
   return (
@@ -31,22 +27,19 @@ export default function TommyVCard() {
         <header className="tommy-vcard__hero">
           <img
             className="tommy-vcard__station"
-            src={`${baseUrl}images/tankstellen/tommy.jpg`}
-            alt="Enilive Service-Station in Berlin-Pankow"
+            src={`${baseUrl}images/tankstellen/guelzower.png`}
+            alt="Enilive Service-Station Gülzower Straße in Berlin"
           />
-
           <div className="tommy-vcard__hero-shade" />
-
           <img
             className="tommy-vcard__logo"
             src={`${baseUrl}images/enilive/enilive-logo.png`}
             alt="Enilive"
           />
-
           <div className="tommy-vcard__identity">
             <p>Enilive Service-Station</p>
-            <h1>Thomas Weickardt</h1>
-            <span>Berlin-Pankow</span>
+            <h1>Marco Köpke</h1>
+            <span>Gülzower Straße · Berlin</span>
           </div>
         </header>
 
@@ -54,18 +47,17 @@ export default function TommyVCard() {
           <div className="tommy-vcard__address">
             <span aria-hidden="true">●</span>
             <p>
-              Dietzgenstraße 127
+              Gülzower Str. 15a
               <br />
-              13158 Berlin-Pankow
+              12619 Berlin
             </p>
           </div>
 
           <div className="tommy-vcard__actions">
-            <a className="tommy-vcard__action" href="tel:+493047750441">
+            <a className="tommy-vcard__action" href="tel:+493056293100">
               <span aria-hidden="true">☎</span>
               <strong>Anrufen</strong>
             </a>
-
             <a
               className="tommy-vcard__action"
               href={routeUrl}
@@ -75,32 +67,26 @@ export default function TommyVCard() {
               <span aria-hidden="true">➜</span>
               <strong>Route starten</strong>
             </a>
-
             <a
               className="tommy-vcard__action"
-              href={`${baseUrl}vcards/thomas-weickardt.vcf`}
+              href={`${baseUrl}vcards/marco-koepke.vcf`}
               download
             >
               <span aria-hidden="true">＋</span>
               <strong>Kontakt speichern</strong>
             </a>
-
-            <span
-              className="tommy-vcard__action tommy-vcard__action--disabled"
-              aria-disabled="true"
-            >
+            <a className="tommy-vcard__action" href="mailto:TS5088@enilive.net">
               <span aria-hidden="true">✉</span>
-              <strong>E-Mail folgt</strong>
-            </span>
+              <strong>E-Mail senden</strong>
+            </a>
           </div>
 
-          <section className="tommy-vcard__services" aria-labelledby="services-title">
+          <section className="tommy-vcard__services" aria-labelledby="marco-services-title">
             <div className="tommy-vcard__section-heading">
               <span />
-              <h2 id="services-title">Unsere Leistungen</h2>
+              <h2 id="marco-services-title">Unsere Leistungen</h2>
               <span />
             </div>
-
             <div className="tommy-vcard__service-grid">
               {services.map((service) => (
                 <div className="tommy-vcard__service" key={service.title}>

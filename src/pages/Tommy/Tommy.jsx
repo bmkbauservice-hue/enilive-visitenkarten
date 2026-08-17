@@ -16,6 +16,9 @@ const tommyData = {
   email: "",
 
   image: "/images/tankstellen/tommy.jpg",
+  vcardUrl:
+    "https://bmkbauservice-hue.github.io/enilive-visitenkarten/?vcard=tommy",
+  qrCode: "/qrcodes/tommy-vcard.png",
 
   servicesLeft: [
     {

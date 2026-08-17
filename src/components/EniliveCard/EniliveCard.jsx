@@ -16,8 +16,17 @@ function ServiceItem({ icon, text }) {
 }
 
 export default function EniliveCard({ station }) {
+  const baseUrl = import.meta.env.BASE_URL
+  const publicAsset = (path) => `${baseUrl}${path.replace(/^\/+/, "")}`
+  const stationImage = publicAsset(station.image)
+  const logoImage = publicAsset("/images/enilive/enilive-logo.png")
+  const qrImage = station.qrCode ? publicAsset(station.qrCode) : null
+
   return (
-    <section className="card-preview">
+    <section
+      className="card-preview"
+      style={{ "--enilive-logo-mask": `url("${logoImage}")` }}
+    >
       {/* Vorderseite */}
       <article className="card-side">
         <p className="card-side__label">
@@ -30,7 +39,7 @@ export default function EniliveCard({ station }) {
           <div className="enilive-card__photo-frame">
             <img
               className="enilive-card__photo"
-              src={station.image}
+              src={stationImage}
               alt={`Enilive Service-Station ${station.location}`}
               onError={(event) => {
                 event.currentTarget.style.display = "none"
@@ -45,7 +54,7 @@ export default function EniliveCard({ station }) {
           <div className="enilive-card__front-logo-panel">
             <img
               className="enilive-card__front-logo"
-              src="/images/enilive/enilive-logo.png"
+              src={logoImage}
               alt="Enilive"
             />
           </div>
@@ -161,48 +170,73 @@ export default function EniliveCard({ station }) {
       {/* Rückseite */}
       <article className="card-side card-side--back">
         <p className="card-side__label">
-          Rückseite · Gutschein
+          {station.vcardUrl ? "Rückseite · Online-VCard" : "Rückseite · Gutschein"}
         </p>
 
-        <div className="business-card enilive-card enilive-card--back">
+        <div
+          className={
+            station.vcardUrl
+              ? "business-card enilive-card enilive-card--back enilive-card--vcard-back"
+              : "business-card enilive-card enilive-card--back"
+          }
+        >
           {/* Logo Rückseite */}
           <div className="enilive-card__back-logo-panel">
             <img
               className="enilive-card__back-logo"
-              src="/images/enilive/enilive-logo.png"
+              src={logoImage}
               alt="Enilive"
             />
           </div>
 
-          {/* Gutscheininhalt */}
-          <div className="enilive-card__voucher-content">
-            <h2 className="enilive-card__voucher-title">
-              Gutschein für:
-            </h2>
+          {station.vcardUrl ? (
+            <div className="enilive-card__vcard-content">
+              <div className="enilive-card__vcard-copy">
+                <p>Digitale Visitenkarte</p>
+                <h2>Einfach scannen</h2>
+                <span>
+                  Kontakt speichern, direkt anrufen und Route starten.
+                </span>
+                <strong>{station.owner}</strong>
+              </div>
 
-            <div className="enilive-card__writing-lines">
-              <div className="enilive-card__writing-line" />
-              <div className="enilive-card__writing-line" />
+              <div className="enilive-card__qr-frame">
+                <img src={qrImage} alt={`QR-Code zur Online-VCard von ${station.owner}`} />
+              </div>
             </div>
+          ) : (
+            <>
+              {/* Gutscheininhalt */}
+              <div className="enilive-card__voucher-content">
+                <h2 className="enilive-card__voucher-title">
+                  Gutschein für:
+                </h2>
 
-            <div className="enilive-card__signature">
-              <span className="enilive-card__signature-label">
-                Unterschrift
-              </span>
+                <div className="enilive-card__writing-lines">
+                  <div className="enilive-card__writing-line" />
+                  <div className="enilive-card__writing-line" />
+                </div>
 
-              <div className="enilive-card__writing-line" />
-            </div>
-          </div>
+                <div className="enilive-card__signature">
+                  <span className="enilive-card__signature-label">
+                    Unterschrift
+                  </span>
 
-          {/* Schriftzug */}
-          <p className="enilive-card__good-trip">
-            Gute Fahrt
-          </p>
+                  <div className="enilive-card__writing-line" />
+                </div>
+              </div>
+
+              {/* Schriftzug */}
+              <p className="enilive-card__good-trip">
+                Gute Fahrt
+              </p>
+            </>
+          )}
 
           {/* Hintergrundbild Rückseite */}
           <img
             className="enilive-card__back-photo"
-            src={station.image}
+            src={stationImage}
             alt=""
             aria-hidden="true"
             onError={(event) => {

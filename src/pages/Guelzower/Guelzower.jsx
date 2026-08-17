@@ -14,6 +14,9 @@ const guelzowerData = {
   email: "TS5088@enilive.net",
 
   image: "/images/tankstellen/guelzower.png",
+  vcardUrl:
+    "https://bmkbauservice-hue.github.io/enilive-visitenkarten/?vcard=marco",
+  qrCode: "/qrcodes/marco-vcard.png",
 
   servicesLeft: [
     {

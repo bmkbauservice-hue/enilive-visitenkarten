@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Köpke;Marco;;;
+FN:Marco Köpke
+ORG:Enilive Service-Station
+TEL;TYPE=WORK,VOICE:+493056293100
+TEL;TYPE=CELL:+491749329259
+EMAIL;TYPE=INTERNET,WORK:TS5088@enilive.net
+ADR;TYPE=WORK:;;Gülzower Str. 15a;Berlin;;12619;Deutschland
+URL:https://bmkbauservice-hue.github.io/enilive-visitenkarten/?vcard=marco
+END:VCARD
