@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import "../Tommy/TommyVCard.css"
 
 const services = [
@@ -19,6 +19,33 @@ export default function MarcoVCard() {
   const baseUrl = import.meta.env.BASE_URL
   const [openMenu, setOpenMenu] = useState(null)
   const [shareStatus, setShareStatus] = useState("")
+
+  useEffect(() => {
+    document.title = "Marco Köpke · Digitale VCard"
+
+    const ensureLink = (rel, href) => {
+      let link = document.querySelector(`link[rel="${rel}"]`)
+
+      if (!link) {
+        link = document.createElement("link")
+        link.rel = rel
+        document.head.appendChild(link)
+      }
+
+      link.href = href
+    }
+
+    ensureLink("manifest", `${baseUrl}manifest-marco.webmanifest`)
+    ensureLink("apple-touch-icon", `${baseUrl}icons/marco-vcard-180.png`)
+
+    let themeColor = document.querySelector('meta[name="theme-color"]')
+    if (!themeColor) {
+      themeColor = document.createElement("meta")
+      themeColor.name = "theme-color"
+      document.head.appendChild(themeColor)
+    }
+    themeColor.content = "#007EAD"
+  }, [baseUrl])
 
   const toggleMenu = (menu) => {
     setShareStatus("")
