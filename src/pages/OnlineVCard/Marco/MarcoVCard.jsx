@@ -156,6 +156,15 @@ export default function MarcoVCard() {
               <span aria-hidden="true">✉</span>
               <strong>E-Mail senden</strong>
             </a>
+            <a
+              className="tommy-vcard__action tommy-vcard__action--wide"
+              href="https://www.clever-tanken.de/tankstelle_details/15667"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span aria-hidden="true">⛽</span>
+              <strong>Aktuelle Spritpreise</strong>
+            </a>
             <button
               className="tommy-vcard__action tommy-vcard__action--wide"
               type="button"
